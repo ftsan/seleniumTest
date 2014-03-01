@@ -10,7 +10,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class TestCase extends TestBase {
@@ -22,6 +21,7 @@ public class TestCase extends TestBase {
         sleep(1000);
         //検索
         WebElement text = driver.findElement(By.id("lst-ib"));
+        takeScreenShot(driver, "C:\\Users\\futeshi\\ci\\screenShot.png");
         text.sendKeys("selenium");
         sleep(1000);
         driver.findElement(By.name("btnK")).submit();
@@ -33,7 +33,6 @@ public class TestCase extends TestBase {
         assertEquals(driver.getCurrentUrl(), "http://www.seleniumhq.org/");
         System.out.println(driver.getTitle());
         //スクリーンショット取得
-        takeScreenShot(driver, "C:\\Users\\futeshi\\ci\\screenShot.png");
         //ブラウザを閉じる
         driver.quit();
     }
